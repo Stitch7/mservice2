@@ -19,27 +19,9 @@ var routes = Routes{
 		Index,
 	},
 	Route{
-		"TodoIndex",
+		"BoardIndex",
 		"GET",
-		"/todos",
-		TodoIndex,
+		"/boards",
+		BoardIndex,
 	},
-	Route{
-		"TodoCreate",
-		"POST",
-		"/todos",
-		TodoCreate,
-	},
-	Route{
-		"TodoShow",
-		"GET",
-		"/todos/{todoId}",
-		TodoShow,
-	},
-    Route{
-        "BoardIndex",
-        "GET",
-        "/boards",
-        BoardIndex,
-    },
 }
