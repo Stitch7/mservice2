@@ -8,6 +8,10 @@ import (
 )
 
 func main() {
+	startServer()
+}
+
+func startServer() {
 	port := os.Getenv("PORT")
 	if len(port) == 0 {
 		port = "3000"
