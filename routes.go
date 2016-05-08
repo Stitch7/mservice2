@@ -28,6 +28,12 @@ var routes = Routes{
 	Route{
 		"BoardIndex",
 		"GET",
+		"/test-login",
+		LoginTest,
+	},
+	Route{
+		"BoardIndex",
+		"GET",
 		"/boards",
 		BoardIndex,
 	},
