@@ -18,7 +18,7 @@ import (
 )
 
 var baseUrl = "http://www.maniac-forum.de/pxmboard.php"
-var ticker = time.NewTicker(10 * time.Second)
+var ticker = time.NewTicker(time.Hour / 4)
 
 func init() {
 	fetchAll()

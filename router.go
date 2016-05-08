@@ -12,13 +12,16 @@ import (
 )
 
 func NewRouter() *mux.Router {
-
 	router := mux.NewRouter().StrictSlash(true)
 	for _, route := range routes {
 		var handler http.Handler
 
 		handler = route.HandlerFunc
 		handler = Logger(handler, route.Name)
+
+		if route.NeedsAuthentication {
+			handler = authMiddleware(handler)
+		}
 
 		router.
 			Methods(route.Method).

@@ -10,10 +10,11 @@ import (
 )
 
 type Route struct {
-	Name        string
-	Method      string
-	Pattern     string
-	HandlerFunc http.HandlerFunc
+	Name                string
+	Method              string
+	NeedsAuthentication bool
+	Pattern             string
+	HandlerFunc         http.HandlerFunc
 }
 
 type Routes []Route
@@ -22,18 +23,21 @@ var routes = Routes{
 	Route{
 		"Index",
 		"GET",
+		false,
 		"/",
 		Index,
 	},
 	Route{
 		"BoardIndex",
 		"GET",
+		true,
 		"/test-login",
 		LoginTest,
 	},
 	Route{
 		"BoardIndex",
 		"GET",
+		false,
 		"/boards",
 		BoardIndex,
 	},

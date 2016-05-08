@@ -42,7 +42,6 @@ func findPort(ssl bool) string {
 			} else {
 				port = "443"
 			}
-
 		} else {
 			if user {
 				port = "8080"
