@@ -32,8 +32,6 @@ func authorize(r *http.Request) bool {
 	username, password, ok := r.BasicAuth()
 
 	if ok {
-		urlStr := "http://www.maniac-forum.de/pxmboard.php" // TODO put this in some sort of config or so
-
 		form := url.Values{}
 		form.Set("mode", "login")
 		form.Set("nick", username)
@@ -41,7 +39,7 @@ func authorize(r *http.Request) bool {
 		payload := form.Encode()
 
 		client := &http.Client{}
-		req, _ := http.NewRequest("POST", urlStr, bytes.NewBufferString(payload))
+		req, _ := http.NewRequest("POST", baseUrl, bytes.NewBufferString(payload))
 		req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 		req.Header.Add("Content-Length", strconv.Itoa(len(payload)))
 		resp, _ := client.Do(req)

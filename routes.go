@@ -5,20 +5,6 @@
 
 package main
 
-import (
-	"net/http"
-)
-
-type Route struct {
-	Name                string
-	Method              string
-	NeedsAuthentication bool
-	Pattern             string
-	HandlerFunc         http.HandlerFunc
-}
-
-type Routes []Route
-
 var routes = Routes{
 	Route{
 		"Index",
@@ -40,5 +26,12 @@ var routes = Routes{
 		false,
 		"/boards",
 		BoardIndex,
+	},
+	Route{
+		"BoardIndex",
+		"GET",
+		false,
+		"/board/{boardId}/threads",
+		ThreadIndex,
 	},
 }

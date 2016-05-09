@@ -21,8 +21,13 @@ func (t JSONTime) MarshalJSON() ([]byte, error) {
 }
 
 func JSONTimeParse(str string) JSONTime {
-	lastMessageString := strings.TrimSpace(str)
-	t, err := time.Parse("02.01.06 15:04", lastMessageString)
+	str = strings.TrimSpace(str)
+	format := "02.01.06 15:04"
+	if len(str) != len(format) { // TODO find way to to handle null value
+		return JSONTime(time.Unix(0, 0))
+	}
+
+	t, err := time.Parse("02.01.06 15:04", str)
 	if err != nil {
 		log.Fatal(err)
 	}

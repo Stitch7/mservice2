@@ -11,7 +11,7 @@ import (
 
 var boards Boards
 
-func BoardReset() {
+func BoardRepoReset() {
 	boards = boards[:0]
 }
 

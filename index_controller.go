@@ -30,9 +30,9 @@ func initReadMe() {
 		panic(err)
 	}
 
-	rawMarkdown, err2 := ioutil.ReadFile("README.md")
-	if err2 != nil {
-		panic(err2)
+	rawMarkdown, err := ioutil.ReadFile("README.md")
+	if err != nil {
+		panic(err)
 	}
 
 	parsedMarkdown := blackfriday.MarkdownBasic(rawMarkdown)
