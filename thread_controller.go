@@ -9,15 +9,14 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/gorilla/mux"
+	"github.com/husobee/vestigo"
 )
 
 func ThreadIndex(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 
-	vars := mux.Vars(r)
-	boardId := vars["boardId"]
+	boardId := vestigo.Param(r, "boardId")
 	boardThreads := ThreadRepoFindByBoardId(toInt(boardId))
 
 	if err := json.NewEncoder(w).Encode(boardThreads); err != nil {

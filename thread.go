@@ -11,7 +11,7 @@ type Thread struct {
 	MessageId   int      `json:"messageId"`
 	Sticky      bool     `json:"sticky"`
 	Closed      bool     `json:"closed"`
-	Author      string   `json:"author"`
+	Username    string   `json:"username"`
 	Mod         bool     `json:"mod"`
 	Subject     string   `json:"subject"`
 	Date        JSONTime `json:"date"`

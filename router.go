@@ -7,27 +7,36 @@ package main
 
 import (
 	"net/http"
+	"time"
 
-	"github.com/gorilla/mux"
+	"github.com/husobee/vestigo"
 )
 
-func NewRouter() *mux.Router {
-	router := mux.NewRouter().StrictSlash(true)
+func NewRouter() *vestigo.Router {
+	router := vestigo.NewRouter()
+	vestigo.AllowTrace = true
+
+	// Global CORS policy
+	router.SetGlobalCors(&vestigo.CorsAccessControl{
+		AllowOrigin:      []string{"*", "nerds.berlin"}, //TODO
+		AllowCredentials: true,
+		ExposeHeaders:    []string{"X-Header", "X-Y-Header"},
+		MaxAge:           3600 * time.Second,
+		AllowHeaders:     []string{"X-Header", "X-Y-Header"},
+	})
+
 	for _, route := range routes {
 		var handler http.Handler
-
 		handler = route.HandlerFunc
 		handler = Logger(handler, route.Name)
-
 		if route.NeedsAuthentication {
 			handler = authMiddleware(handler)
 		}
 
-		router.
-			Methods(route.Method).
-			Path(route.Pattern).
-			Name(route.Name).
-			Handler(handler)
+		router.Add(
+			route.Method,
+			route.Pattern,
+			handler.ServeHTTP)
 	}
 
 	return router

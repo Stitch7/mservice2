@@ -12,9 +12,9 @@ M!service2 ist ein in go geschriebener web service, der eine RESTful JSON API f�
 		- [Parameter](#user-content-parameter)
 		- [Authentifizierung](#user-content-authentifizierung)
 		- [Responses](#user-content-responses)
-	- [Test Login (TODO)](#user-content-test-login)
+	- [Test Login](#user-content-test-login)
 	- [Boards](#user-content-boards)
-	- [Threads (TODO)](#user-content-threads)
+	- [Threads](#user-content-threads)
 	- [Thread (TODO)](#user-content-thread)
 	- [Message (TODO)](#user-content-message)
 	- [Notification Status (TODO)](#user-content-notification-status)
@@ -67,7 +67,7 @@ Bei der Verwendung der API ist der HTTP Status Code der Server Response zu beach
 | 504 - Gateway Timeout       | Es konnte keine Verbindung zum Forumsserver hergestellt werden, tritt zB in den Downzeiten während der Nacht auf |
 
 
-## <a name="user-content-test-login"></a>Test Login TODO
+## <a name="user-content-test-login"></a>Test Login
 
 Überprüft Login Daten.
 
@@ -192,7 +192,7 @@ Daten der Startseite / Boardübersicht.
 
 
 
-## <a name="user-content-threads"></a>Threads (TODO)
+## <a name="user-content-threads"></a>Threads
 
 Liste der Threads (Daten des oberen Frames) eines Boards.
 

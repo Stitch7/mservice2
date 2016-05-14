@@ -31,7 +31,7 @@ var routes = Routes{
 		"BoardIndex",
 		"GET",
 		false,
-		"/board/{boardId}/threads",
+		"/board/:boardId/threads",
 		ThreadIndex,
 	},
 }

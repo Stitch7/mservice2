@@ -164,7 +164,7 @@ func parseThreadsHtml(boardId int, body io.ReadCloser) {
 		mainMatches := mainReg.FindStringSubmatch(threadText)
 		if len(mainMatches) > 1 {
 			subject := mainMatches[1]
-			author := mainMatches[2]
+			username := mainMatches[2]
 			date := JSONTimeParse(mainMatches[3])
 			answerCount := toInt(mainMatches[4])
 			answerDate := JSONTimeParse(mainMatches[5])
@@ -177,7 +177,7 @@ func parseThreadsHtml(boardId int, body io.ReadCloser) {
 					Subject:     subject,
 					Sticky:      sticky,
 					Closed:      closed,
-					Author:      author,
+					Username:    username,
 					Mod:         mod,
 					Date:        date,
 					AnswerCount: answerCount,
